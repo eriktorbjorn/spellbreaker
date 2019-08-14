@@ -163,7 +163,7 @@
 	 <TELL " here." CR>
 	 <END-QUOTE>>
 
-<ROUTINE FIND-NOT-HERE (TBL PRSO? "AUX" M-F OBJ)
+<ROUTINE FIND-NOT-HERE (TBL PRSO? "AUX" M-F)
 ;"Special-case code goes here. <MOBY-FIND .TBL> returns # of matches. If 1,
 then P-MOBY-FOUND is it. You can treat the 0 and >1 cases alike or differently.
 Always return RFALSE (not handled) if you have resolved the problem."
@@ -356,7 +356,7 @@ extinct." CR>)>)>>
 	(FLAGS PERSON TOUCHBIT NOABIT NOTHEBIT)
 	(ACTION ME-F)>
 
-<ROUTINE ME-F ("AUX" OLIT)
+<ROUTINE ME-F ()
 	 <COND (<AND <VERB? EXAMINE>
 		     <EQUAL? ,PRSO ,ME>>
 		<V-DIAGNOSE>)

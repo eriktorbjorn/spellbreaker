@@ -102,7 +102,7 @@
 ;<ROUTINE CDPRINT (O)
 	 <DPRINT .O T>>
 
-<ROUTINE DPRINT (O "OPTIONAL" (CAP? <>) (THE? <>) "AUX" S)
+<ROUTINE DPRINT (O "OPTIONAL" (CAP? <>) (THE? <>))
 	 <COND (<OR .THE? <FSET? .O ,THE>>
 		<COND (.CAP? <PRINTI "The ">)
 		      (T <PRINTI "the ">)>)>

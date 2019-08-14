@@ -162,7 +162,7 @@
 	       (T
 		<TELL "You are empty-handed." CR>)>>
 
-<ROUTINE V-QUIT ("OPTIONAL" (ASK? T) "AUX" SCOR)
+<ROUTINE V-QUIT ("OPTIONAL" (ASK? T))
 	 %<DEBUG-CODE <TELL-C-INTS>>
 	 <V-SCORE>
 	 <COND (<OR <AND .ASK?
@@ -393,7 +393,7 @@ Release ">
 		     (ELSE " in ")>
 	       THE .AV "!" CR>>
 
-<ROUTINE V-BOARD ("AUX" AV)
+<ROUTINE V-BOARD ()
 	 <TELL ,YOU-ARE-NOW "in ">
 	 <THE-PRSO>
 	 <MOVE ,WINNER ,PRSO>
@@ -541,10 +541,10 @@ THE ,PRSO " into slivers, which vanish." CR>)
 	       (ELSE
 		<TELL "It's not in anything." CR>)>>
 
-<ROUTINE V-DRINK ("AUX" S)
+<ROUTINE V-DRINK ()
 	 <YOU-CANT-X-THAT "drink">>
 
-<ROUTINE V-DRINK-FROM ("AUX" X)
+<ROUTINE V-DRINK-FROM ()
 	 <COND (<EQUAL? ,PRSO ,WATER>
 		<PERFORM ,V?DRINK ,PRSO>
 		<RTRUE>)
@@ -950,7 +950,7 @@ before you leaped.">)
 	       (<FSET? ,PRSO ,PERSON>
 		<TELL "What a grisly idea." CR>)>>
 
-<ROUTINE V-OPEN ("AUX" F STR)
+<ROUTINE V-OPEN ()
 	 <COND (<OR <AND <NOT <FSET? ,PRSO ,CONTBIT>>
 		         <NOT <FSET? ,PRSO ,DOORBIT>>>
 		    <FSET? ,PRSO ,SCROLLBIT>
@@ -1010,7 +1010,7 @@ before you leaped.">)
 	       (ELSE
 		<YOU-CANT-X-THAT "pour">)>>
 
-<ROUTINE EMPTY-ALL (FROM TO "AUX" F N R)
+<ROUTINE EMPTY-ALL (FROM TO "AUX" R)
 	 <COND (<NOT <FIRST? .FROM>>
 		<TELL CTHE .FROM " is empty." CR>)
 	       (ELSE
@@ -1206,7 +1206,7 @@ CTHE ,PRSO " refuses to let you search him." CR>)
 <ROUTINE V-SGIVE ()
 	 <RTRUE>>
 
-<ROUTINE V-SHAKE ("AUX" X)
+<ROUTINE V-SHAKE ()
 	 <COND (<FSET? ,PRSO ,PERSON>
 		<TELL "Be real." CR>)
 	       (<NOT <FSET? ,PRSO ,TAKEBIT>>
@@ -1698,7 +1698,7 @@ smokes."
 
 <GLOBAL FUMBLE-NUMBER 8>
 
-<ROUTINE ITAKE ("OPTIONAL" (VB T) "AUX" CNT OBJ)
+<ROUTINE ITAKE ("OPTIONAL" (VB T) "AUX" CNT)
 	 <COND (<IMMOBILIZED?> <RFALSE>)
 	       (<NOT <FSET? ,PRSO ,TAKEBIT>>
 		<COND (.VB
@@ -1759,14 +1759,14 @@ to take it as well." CR>)>
 		<MOVE ,PRSO <LOC ,WINNER>>
 		<RTRUE>)>>
 
-<ROUTINE CCOUNT (OBJ "AUX" (CNT 0) X)
+<ROUTINE CCOUNT (OBJ "AUX" (CNT 0))
 	 <MAP-CONTENTS (X .OBJ)
 		       (END <RETURN .CNT>)
 	      <SET CNT <+ .CNT 1>>>>
 
 ;"WEIGHT: Gets sum of SIZEs of supplied object, recursing to nth level."
 
-<ROUTINE WEIGHT (OBJ "AUX" CONT (WT 0))
+<ROUTINE WEIGHT (OBJ "AUX" (WT 0))
 	 <COND (<EQUAL? .OBJ ,ZIPPER ,SPELL-BOOK> T)
 	       (ELSE
 		<MAP-CONTENTS (CONT .OBJ)
@@ -1866,7 +1866,7 @@ long description (fdesc or ldesc), otherwise will print short."
 <GLOBAL PROVIDING-LIGHT " (providing light)">
 
 <ROUTINE PRINT-CONT (OBJ "OPTIONAL" (V? <>) (LEVEL 0)
-		     "AUX" Y 1ST? AV STR (PV? <>) (INV? <>))
+		     "AUX" Y 1ST? AV (PV? <>) (INV? <>))
 	 <COND (<NOT <SET Y <FIRST? .OBJ>>>
 		<RTRUE>)>
 	 <COND (<AND <SET AV <LOC ,WINNER>>

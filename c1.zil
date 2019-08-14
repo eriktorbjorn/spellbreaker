@@ -1775,7 +1775,7 @@ light, and the decorations on the box change subtly. They now depict ">
 	(DESCFCN OGRE-DESC)
 	(CONTFCN OGRE-F)>
 
-<ROUTINE OGRE-DESC ("OPTIONAL" RARG OBJ)
+<ROUTINE OGRE-DESC ()
 	 <TELL "A " <COND (<EQUAL? ,SHRINK-FLAG ,OGRE>
 			   "small but nasty")
 			  (ELSE "large")> " ogre ">

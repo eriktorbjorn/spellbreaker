@@ -235,7 +235,7 @@ of carpets">
 
 <GLOBAL MERCHANT-FLAG:FLAG <>>
 
-<ROUTINE MERCHANT-F ("OPTIONAL" (RARG <>) "AUX" PREV)
+<ROUTINE MERCHANT-F ("OPTIONAL" (RARG <>))
 	 <SETG MERCHANT-FLAG T>
 	 <COND (<EQUAL? ,WINNER ,MERCHANT>
 		<COND (<AND <VERB? TELL-ABOUT>
@@ -1798,7 +1798,7 @@ five burly guards are coming." CR>)>)
 
 <GLOBAL SPELLS-USED:FLAG 0>
 
-<ROUTINE SCALES-ROOM-F (RARG "AUX" P1 P2)
+<ROUTINE SCALES-ROOM-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
 "You are in a large, bare concrete room.">
@@ -1968,7 +1968,7 @@ lead coins." CR>)
 
 <GLOBAL IS-GLOWING:STRING " is glowing with a faint blue glow.">
 
-<ROUTINE MEASURE (OBJ "AUX" F (CNT 0))
+<ROUTINE MEASURE (OBJ "AUX" (CNT 0))
 	 <MAP-CONTENTS (F .OBJ)
 		       (<RETURN .CNT>)
 		       <COND (<GETP .F ,P?CUBE> ;"REAL CUBE"
@@ -2036,7 +2036,7 @@ on your cheek." CR>)>>
 
 <GLOBAL WHITE-CUBE:STRING "featureless white cube">
 
-<ROUTINE PILE-LOOP (OBJ "AUX" F N (1ST? T) (CNT 0) CUBE?)
+<ROUTINE PILE-LOOP (OBJ "AUX" (1ST? T) (CNT 0) CUBE?)
 	 <MAP-CONTENTS (F N .OBJ)
 		       (END <COND (<G? .CNT 0>
 				   <COND (<NOT .1ST?>

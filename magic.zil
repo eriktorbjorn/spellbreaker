@@ -65,7 +65,7 @@ e   ZIFMIA	SUMMON-SPELL
 
 <GLOBAL SEEN-BLORPLE? <>>
 
-<ROUTINE SPELL-BOOK-F ("AUX" F)
+<ROUTINE SPELL-BOOK-F ()
 	 <COND (<VERB? EXAMINE>
 		<TELL
 "This is your well-used old " 'SPELL-BOOK ", first given to you by Belboz
@@ -485,7 +485,7 @@ likely that something may have been forgotten in the shuffle." CR>)>
 
 <GLOBAL FORGET-TBL <LTABLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0>>
 
-<ROUTINE FORGET-ALL ("AUX" F)
+<ROUTINE FORGET-ALL ()
 	 <SETG SPELL-ROOM ,SPELL-MAX>
 	 <MAP-CONTENTS (F ,SPELL-BOOK)
 		       <PUTP .F ,P?COUNT 0>>>
@@ -769,7 +769,7 @@ on which it is written." CR>
 	  ;GASPAR-SPELL
 	  ;YONK-SPELL
 
-<ROUTINE V-SPELLS ("AUX" S (ANY <>) (OS <>) TMP)
+<ROUTINE V-SPELLS ("AUX" (ANY <>) (OS <>) TMP)
 	 <TELL
 "The gnusto, rezrov, and frotz spells are yours forever. Other than that,
 you have ">
@@ -969,7 +969,7 @@ gravity." CR>)>)>>
 
 <GLOBAL AT-FIRST "At first, nothing happens. Then you notice ">
 
-<ROUTINE V-JINDAK ("AUX" F (1ST? T) P1 P2)
+<ROUTINE V-JINDAK ("AUX" (1ST? T) P1 P2)
 	 <TOO-PRECISE "detects magic">
 	 <COND (<EQUAL? ,HERE ,SCALES-ROOM>
 		<SET P1 <MEASURE ,PILE-1>>
@@ -1000,7 +1000,7 @@ with identical brightness.">)
 "Nothing in the vicinity glows. Apparently there is no magic
 nearby." CR>)>>
 
-<ROUTINE DETECT-MAGIC (OBJ "OPTIONAL" (1ST? T) "AUX" F)
+<ROUTINE DETECT-MAGIC (OBJ "OPTIONAL" (1ST? T))
 	 <MAP-CONTENTS (F .OBJ)
 		       (END <RETURN <NOT .1ST?>>)
 		       <COND (<NOT <EQUAL? .F ,PLAYER ,PILE-1 ,PILE-2>>
